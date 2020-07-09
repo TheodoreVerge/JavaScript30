@@ -18,28 +18,67 @@
     }
 
     // Regular
+    console.log("Hello");
 
     // Interpolated
+    console.log(`Hello, I am ${dogs[0].name}` + " " + `and I'm ${dogs[0].age} years old`);
 
     // Styled
+    console.log('%c I am some good text', 'color:red; font-weight:50px');
 
     // warning!
+    console.warn('Careful');
 
     // Error :|
+    console.error('Watch it!');
 
     // Info
-
+    console.info('Kimchi is fermented food');
     // Testing
+    console.assert(1 === 1, "That's wrong!")
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.dir(".p");
+    console.clear();
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
 
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+    console.table(dogs);console.time('fetch data');
+
 
   </script>
 </body>
