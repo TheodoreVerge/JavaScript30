@@ -30,7 +30,7 @@
     console.log(players, team);
 
     // You might think we can just do something like this:
-
+   // team[3] = 'Lux';
     // however what happens when we update that array?
 
     // now here is the problem!
@@ -42,11 +42,17 @@
     // So, how do we fix this? We take a copy instead!
 
     // one way
-      const team2 = players.slice();
-      players[2] = "BOB";
+      // const team2 = players.slice();
+      // players[2] = "BOB";
     // or create a new array and concat the old one in
+    // const team3 = [].concat(players);
 
     // or use the new ES6 Spread
+    const team4 = [...players];
+    team4[3] = 'heeee hawww';
+    console.log(team4);
+
+    const team5 = Array.from(players);
 
     // now when we update it, the original one isn't changed
 
@@ -59,9 +65,12 @@
     };
 
     // and think we make a copy:
+    // const captain = person;
+    // captain.number = 99;
 
     // how do we take a copy instead?
-
+    const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+    console.log(cap2);
     // We will hopefully soon see the object ...spread
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
